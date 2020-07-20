@@ -1,0 +1,13 @@
+[Unit]
+Description=Node Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=prometheus
+Group=prometheus
+Type=simple
+ExecStart=/usr/local/bin/node_exporter --web.listen-address=127.0.0.1:9095 --collector.diskstats.ignored-devices=^(ram|loop|fd|(h|s|v|xv)d[a-z])\\d+$ --collector.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker)($|/) --collector.filesystem.ignored-fs-types=^/(autofs|binfmt_misc|cgroup|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|mqueue|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|sysfs|tracefs)($|/) --collector.meminfo_numa --collector.ntp --collector.processes --collector.tcpstat --no-collector.nfs --no-collector.nfsd --no-collector.xfs --no-collector.zfs --no-collector.infiniband --no-collector.vmstat --collector.textfile.directory="/var/spool/okchain"
+
+[Install]
+WantedBy=multi-user.target

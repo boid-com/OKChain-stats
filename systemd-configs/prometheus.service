@@ -1,0 +1,20 @@
+[Unit]
+Description=Prometheus
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=prometheus
+Group=prometheus
+Type=simple
+
+ExecStart=/usr/local/bin/prometheus \
+--config.file /etc/prometheus/prometheus.yml \
+--storage.tsdb.path /var/spool/prometheus/ \
+--storage.tsdb.retention.time=180d \
+--web.enable-lifecycle \
+--web.enable-admin-api \
+--web.listen-address="127.0.0.1:9090"
+
+[Install]
+WantedBy=multi-user.target
