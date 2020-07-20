@@ -1,5 +1,4 @@
-# OKChain-stats
-OK Chain stats
+## OKChain-stats
 
 This repo was created for the OKchain Hackathon 2020 (https://www.okex.com/academy/en/the-first-okchain-hackathon-campaign-announcement)
 
@@ -16,11 +15,13 @@ curl -LO https://github.com/prometheus/node_exporter/releases/download/v0.18.1/n
 curl -LO https://github.com/prometheus/prometheus/releases/download/v2.19.2/prometheus-2.19.2.linux-amd64.tar.gz
 ```
 
-
 grab the binaries (prometheus and node_exporter)  and put them in /usr/local/bin
 copy the systemd service files 
 ```
 cp systemd-configs/*.service /usr/lib/systemd/system
+```
+Setup prometheus and start services
+```
 useradd prometheus
 mkdir /etc/prometheus
 mkdir /var/spool/prometheus
@@ -48,6 +49,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 You should now see /var/spool/okchain/okchain.prom file
 prometheus will pick this up automatically.
 
+Now you can load the okchain-validator-dashboard.json via grafana
 
 
 
