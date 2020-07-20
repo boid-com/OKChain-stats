@@ -1,6 +1,8 @@
 ## OKChain-stats
 
 This repo was created for the OKchain Hackathon 2020 (https://www.okex.com/academy/en/the-first-okchain-hackathon-campaign-announcement)
+This project is a proof of concept to show how okchain specific information can be injected into a prometheus timeseries db and
+visualized via Grafana for analysis.
 
 The following steps are need to install the full setup:
 
